@@ -13,4 +13,15 @@ class mainController extends Controller
     {
         return image::index($request->all());
     }
+
+    public function test(Request $request)
+    {
+        return image::test($request->all());
+    }
+
+
+    public function db(Request $request)
+    {
+        return image::db($request->all());
+    }
 }

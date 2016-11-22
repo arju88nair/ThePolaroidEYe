@@ -49,7 +49,6 @@
 
 
 <!-- Only used for the demos. Please ignore and remove. -->
-<script src="http://cdn.tutorialzine.com/misc/enhance/v1.js" async></script>
 
 </body>
 </html>

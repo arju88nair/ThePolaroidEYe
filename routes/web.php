@@ -14,9 +14,17 @@
 Route::get('/', function () {
 
 
-    return view('welcome');
+    return view('index');
 });
 
 
 
-Route::post('test','mainController@index');
+Route::post('upload','mainController@index');
+
+
+Route::get('test','mainController@test');
+
+
+Route::post('db','mainController@db');
+
+
