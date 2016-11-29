@@ -24,4 +24,9 @@ class mainController extends Controller
     {
         return image::db($request->all());
     }
+
+    public function deleteCollections(Request $request)
+    {
+        return image::deleteCollections($request->all());
+    }
 }

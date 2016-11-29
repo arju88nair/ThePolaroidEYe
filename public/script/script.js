@@ -1,5 +1,67 @@
 $(function(){
 
+
+
+
+
+
+    var clickHandler = function (e) {
+        var spread = $(this).val();
+        var seHue  = $('#hueRange').val();
+        $('.il').remove();
+        $.ajax({
+            type: "POST",
+            url: "db",
+            data: {'spread': spread, 'hue': seHue},
+            async: true,
+            dataType: 'json',
+            enctype: 'multipart/form-data',
+            cache: false,
+            success: function (data) {
+                console.log(data);
+                if (data.length > 0) {
+                    $('#count').text("There are  " + data.length + " image(s) for hue of " +seHue+ " and spread of " + spread);
+                    for (var i = 0; i < data.length; i++) {
+                        var url = data[i].url;
+                        var ip = data[i].IPaddress;
+                        var hue = data[i].hue;
+                        var date = data[i].created_at;
+                        $('#ul').append(' <li class="il" id="il"> <div class="imageDiv"><img  class="imgTag" src=' + url + '></div> <span id="spanTag">Hue  - &nbsp;&nbsp;</span><span id="hueVal">' + hue + '</span><br> <p id="Ips">Ip of the user &nbsp;&nbsp; ' + ip + '</p><br><center><span id="dated">Added on&nbsp;&nbsp;' + date + '</span></center></li>');
+                    }
+
+                    $('html, body').animate({
+                        scrollTop: $("#il").offset().top
+                    }, 1000);
+                }
+                else{
+                    $('#count').text("No images for the selected Hue and Spread!");
+                }
+            },
+            error: function () {
+                $('#count').text("Something went wrong.Please try again");
+            }
+        });
+        e.stopImmediatePropagation();
+    }
+
+    $('#spread').on('change', clickHandler);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     var ul = $('#upload ul');
 
     $('#drop a').click(function(){
