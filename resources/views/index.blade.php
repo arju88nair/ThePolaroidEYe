@@ -71,7 +71,7 @@
             Drop Here
 
             <a>Browse</a>
-            <input type="file" name="upl" multiple/>
+            <input type="file" name="upl" accept="image/*" multiple/>
         </div>
 
         <ul>
